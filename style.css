@@ -25,6 +25,7 @@ body, html{
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 40px 30px;
+    overflow-y: auto;    
 }
 
 .input-container{
@@ -40,7 +41,6 @@ body, html{
 #todo-input{
     width: 80%;
     padding: 12px;
-    /* margin-top: 20px; */
     border-radius: 5px;
     outline: none;
     border: 1px solid #ccc;
@@ -66,4 +66,20 @@ body, html{
 
 #input-button:active{
     opacity: 0.8;
+}
+
+.items-container{
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+.item{
+    list-style: none;
+    width: 100%;
+    padding: 15px 5px;
+}
+
+ul li:not(:last-child){
+    border-bottom: 1px solid rgb(160, 160, 160);
 }
