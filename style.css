@@ -15,11 +15,55 @@ body, html{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 
 .list-container{
     background-color: #F5F5F5;
-    width: 400px;
-    height: 500px;
+    width: 500px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 40px 30px;
+}
+
+.input-container{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+
+}
+
+#todo-input{
+    width: 80%;
+    padding: 12px;
+    /* margin-top: 20px; */
     border-radius: 5px;
+    outline: none;
+    border: 1px solid #ccc;
+    transition: border-color 0.1s ease-in;
+}
+
+#todo-input:focus{
+    border-color: lightblue;
+}
+
+#input-button{
+    border-radius: 5px;
+    border: none;
+    background-color: lightblue;
+    margin-left: 16px;
+    width: 15%;
+    font-size: 2rem;
+    transition: all 0.1s ease-in;
+}
+#input-button:hover{
+    background-color: rgb(147, 189, 203);
+}
+
+#input-button:active{
+    opacity: 0.8;
 }
