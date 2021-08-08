@@ -20,9 +20,6 @@ function addItem(){
             document.getElementById('todo-input').value = '';
         }
         
-
-
-
     });
 }
 addItem();
