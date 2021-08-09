@@ -55,7 +55,7 @@ body, html {
 }
 
 .error {
-    border-color: #ff6961;
+    border-color: #ff6961 !important;
 }
 
 /* button */
