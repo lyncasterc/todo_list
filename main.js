@@ -1,25 +1,43 @@
 const button = document.getElementById('input-button');
-const itemsList = document.getElementById('items-list');
-let todoItems = [];
+const itemsList = document.getElementById('items-list')
+const checkboxes = document.querySelectorAll('.checkboxes')
+const todoItems = [];
 
-
-function addItem(){
+const addItem = function(){
     button.addEventListener('click', function(){
-        let input = document.getElementById('todo-input');
-        let todoItemText = input.value;
+        const input = document.getElementById('todo-input');
+        input.classList.add('error');
+        const todoItemText = input.value;
 
         if(todoItemText.trim() === ''){
             input.classList.add('error');
             input.placeholder = 'You can\'t add a blank item!';
         } else {
-            todoItems.push(todoItemText);
-            let todoItem = document.createElement('li');
-            todoItem.classList.add('item')
-            todoItem.innerHTML = `${todoItemText} <img class="trash-icon" src="https://img.icons8.com/material-rounded/24/000000/trash.png"/> `;
+            input.classList.remove('error');
+            input.placeholder = 'What do you need to do?';
+            todoItems.push({
+                todo: todoItemText,
+                completed: false
+            });
+            const todoItem = document.createElement('li');
+            todoItem.classList.add('item');
+            todoItem.innerHTML = `<div>
+                                    <input type="checkbox" name="completed" id="checkbox" class="checkboxes" >
+                                    <span class=""> ${todoItemText} </span>
+                                </div> 
+                                <img class="trash-icon" src="https://img.icons8.com/material-rounded/24/000000/trash.png"/> `;
+
             itemsList.appendChild(todoItem);
             document.getElementById('todo-input').value = '';
         }
-        
+
     });
 }
+
+const completeItem = function(){
+    checkboxes.addEventListener('click', function(){
+        
+    });
+};
+
 addItem();
