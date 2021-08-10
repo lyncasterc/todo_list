@@ -1,13 +1,10 @@
 const button = document.getElementById('input-button');
 const itemsList = document.getElementById('items-list');
-const checkboxes = itemsList.getElementsByClassName('checkboxes');
-
 const todoItems = [];
 
 const findTodo = function(todoText){
     return todoItems.find(element => element.todo === todoText );
 };
-
 
 const addItem = function(){
     button.addEventListener('click', function(){
@@ -70,9 +67,20 @@ const checkTodo = function(){
     });
 };
 
+const deleteTodo = function(){
+    itemsList.addEventListener('click', function(e){
+        if (e.target && e.target.classList.contains('trash-icon')){
+            const todoItem = e.target.parentNode;
+            const todoItemText = todoItem.children[0].children[1].innerText;
+            todoItems.splice(todoItems.findIndex(element => element.todo === todoItemText), 1);
+            todoItem.remove();
+        }
+    });
+};
 
 addItem();
 checkTodo();
+deleteTodo();
 
 
 
