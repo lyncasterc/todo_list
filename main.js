@@ -1,7 +1,13 @@
 const button = document.getElementById('input-button');
-const itemsList = document.getElementById('items-list')
-const checkboxes = document.querySelectorAll('.checkboxes')
+const itemsList = document.getElementById('items-list');
+const checkboxes = itemsList.getElementsByClassName('checkboxes');
+
 const todoItems = [];
+
+const findTodo = function(todoText){
+    return todoItems.find(element => element.todo === todoText );
+};
+
 
 const addItem = function(){
     button.addEventListener('click', function(){
