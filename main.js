@@ -2,14 +2,13 @@ const button = document.getElementById('input-button');
 const itemsList = document.getElementById('items-list');
 const todoItems = [];
 
-const findTodo = function(todoText){
-    return todoItems.find(element => element.todo === todoText );
+const findTodoItem = function(todoText){
+    return todoItems.find(item => item.todo === todoText );
 };
 
-const addItem = function(){
+const addTodoItem = function(){
     button.addEventListener('click', function(){
         const input = document.getElementById('todo-input');
-        input.classList.add('error');
         const todoItemText = input.value;
 
         if(todoItemText.trim() === ''){
@@ -49,7 +48,7 @@ const addItem = function(){
     });
 }
 
-const checkTodo = function(){
+const checkTodoItem = function(){
     
     itemsList.addEventListener('click', function(e){
         if (e.target && e.target.classList.contains('checkboxes') ) {
@@ -57,30 +56,30 @@ const checkTodo = function(){
 
             if(e.target.checked){
                 todoText.classList.toggle('checked');
-                findTodo(todoText.innerText).completed = true;
+                findTodoItem(todoText.innerText).completed = true;
 
             } else {
                 todoText.classList.toggle('checked');
-                findTodo(todoText.innerText).completed = false;
+                findTodoItem(todoText.innerText).completed = false;
             }
         }
     });
 };
 
-const deleteTodo = function(){
+const deleteTodoItem = function(){
     itemsList.addEventListener('click', function(e){
         if (e.target && e.target.classList.contains('trash-icon')){
             const todoItem = e.target.parentNode;
             const todoItemText = todoItem.children[0].children[1].innerText;
-            todoItems.splice(todoItems.findIndex(element => element.todo === todoItemText), 1);
+            todoItems.splice(todoItems.findIndex(item => item.todo === todoItemText), 1);
             todoItem.remove();
         }
     });
 };
 
-addItem();
-checkTodo();
-deleteTodo();
+addTodoItem();
+checkTodoItem();
+deleteTodoItem();
 
 
 
