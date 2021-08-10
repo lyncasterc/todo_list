@@ -52,10 +52,28 @@ const addItem = function(){
     });
 }
 
-const completeItem = function(){
-    checkboxes.addEventListener('click', function(){
-        
+const checkTodo = function(){
+    
+    itemsList.addEventListener('click', function(e){
+        if (e.target && e.target.classList.contains('checkboxes') ) {
+            const todoText = e.target.nextElementSibling;
+
+            if(e.target.checked){
+                todoText.classList.toggle('checked');
+                findTodo(todoText.innerText).completed = true;
+
+            } else {
+                todoText.classList.toggle('checked');
+                findTodo(todoText.innerText).completed = false;
+            }
+        }
     });
 };
 
+
 addItem();
+checkTodo();
+
+
+
+
