@@ -25,13 +25,25 @@ const addItem = function(){
                 todo: todoItemText,
                 completed: false
             });
+
             const todoItem = document.createElement('li');
             todoItem.classList.add('item');
-            todoItem.innerHTML = `<div>
-                                    <input type="checkbox" name="completed" id="checkbox" class="checkboxes" >
-                                    <span class=""> ${todoItemText} </span>
-                                </div> 
-                                <img class="trash-icon" src="https://img.icons8.com/material-rounded/24/000000/trash.png"/> `;
+            const div = document.createElement('div');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.value = todoItemText;
+            checkbox.classList.add('checkboxes');
+            div.appendChild(checkbox);
+
+            const span = document.createElement('span');
+            span.textContent = todoItemText;
+            div.appendChild(span);
+
+            const trashIcon = document.createElement('img');
+            trashIcon.classList.add('trash-icon');
+            trashIcon.src = 'https://img.icons8.com/material-rounded/24/000000/trash.png';
+            todoItem.appendChild(div);
+            todoItem.appendChild(trashIcon);
 
             itemsList.appendChild(todoItem);
             document.getElementById('todo-input').value = '';
