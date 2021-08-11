@@ -145,7 +145,7 @@ ul li:not(:last-child) {
     opacity: 0.5;
 }
 
-/*  */
+/* media queries */
 @media screen and (max-width: 530px) {
     .list-container{
         width: 400px;
