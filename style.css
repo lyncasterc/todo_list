@@ -23,9 +23,7 @@ body, html {
 /* list container styles */
 .list-container {
     background-color: #F5F5F5;
-    max-width: 500px;
     width: 500px;
-    max-height: 600px;
     height: 600px;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -146,6 +144,50 @@ ul li:not(:last-child) {
     text-decoration: line-through !important;
     opacity: 0.5;
 }
+
+/*  */
+@media screen and (max-width: 530px) {
+    .list-container{
+        width: 400px;
+        height: 600px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .list-container{
+        width: 300px;
+        height: 500px;
+    }
+    .items-container{
+        height: 75%;
+
+    }
+}
+
+@media screen and (max-height: 415px) {
+    .list-container{
+        height: 360px;
+        width: 300px;
+    }
+    .items-container{
+        height: 65%;
+
+    }
+}
+
+@media screen and (max-height: 330px) {
+    .list-container{
+        height: 310px;
+        width: 300px;
+    }
+    .items-container{
+        height: 55%;
+
+    }
+}
+
+
+
 
 
 

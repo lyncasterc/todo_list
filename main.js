@@ -51,7 +51,6 @@ const createItem = (todoItemText, completed) => {
 
 const findTodoItem = todoText => todoItems.find(item => item.todo === todoText);
 
-
 const addTodoItem = function(){
     button.addEventListener('click', function(){
         const input = document.getElementById('todo-input');
