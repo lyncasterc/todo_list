@@ -77,7 +77,7 @@ const addTodoItem = function(){
 
 const checkTodoItem = function(){
     
-    itemsList.addEventListener('click', function(e){
+    itemsList.addEventListener('click', (e) => {
         if (e.target && e.target.classList.contains('checkboxes') ) {
             const todoText = e.target.nextElementSibling;
 
@@ -89,21 +89,25 @@ const checkTodoItem = function(){
                 todoText.classList.toggle('checked');
                 findTodoItem(todoText.innerText).completed = false;
             }
+            saveTodoItems();
         }
     });
 };
 
 const deleteTodoItem = function(){
-    itemsList.addEventListener('click', function(e){
+    itemsList.addEventListener('click', (e) => {
         if (e.target && e.target.classList.contains('trash-icon')){
             const todoItem = e.target.parentNode;
             const todoItemText = todoItem.children[0].children[1].innerText;
             todoItems.splice(todoItems.findIndex(item => item.todo === todoItemText), 1);
+            saveTodoItems();
             todoItem.remove();
+
         }
     });
 };
 
+renderTodoItems();
 addTodoItem();
 checkTodoItem();
 deleteTodoItem();
