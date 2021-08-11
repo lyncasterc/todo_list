@@ -1,6 +1,7 @@
 const button = document.getElementById('input-button');
 const itemsList = document.getElementById('items-list');
-const todoItems = [];
+let todoItems = JSON.parse(localStorage.getItem('items')) || [];
+localStorage.setItem('items', JSON.stringify(todoItems));
 
 const findTodoItem = function(todoText){
     return todoItems.find(item => item.todo === todoText );
