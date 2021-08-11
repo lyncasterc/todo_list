@@ -7,6 +7,51 @@ const saveTodoItems = () => {
     localStorage.setItem('items', JSON.stringify(todoItems));
 };
 
+const renderTodoItems = () => {
+    todoItems = JSON.parse(localStorage.getItem('items'));
+
+    if (todoItems && todoItems.length > 0){
+
+        document.addEventListener('DOMContentLoaded', (e) => {
+            todoItems.forEach(item => {
+                itemsList.appendChild(createItem(item.todo, item.completed));
+            });
+        });
+    }
+
+};
+
+const createItem = (todoItemText, completed) => {
+    const todoItem = document.createElement('li');
+    todoItem.classList.add('item');
+    const div = document.createElement('div');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.value = todoItemText;
+    checkbox.classList.add('checkboxes');
+    div.appendChild(checkbox);
+
+    const span = document.createElement('span');
+    span.textContent = todoItemText;
+    div.appendChild(span);
+
+    if (completed){
+        checkbox.checked = true;
+        span.classList.add('checked');
+    }
+
+    const trashIcon = document.createElement('img');
+    trashIcon.classList.add('trash-icon');
+    trashIcon.src = 'https://img.icons8.com/material-rounded/24/000000/trash.png';
+    todoItem.appendChild(div);
+    todoItem.appendChild(trashIcon);
+
+    return todoItem;
+};
+
+const findTodoItem = todoText => todoItems.find(item => item.todo === todoText);
+
+
 const addTodoItem = function(){
     button.addEventListener('click', function(){
         const input = document.getElementById('todo-input');
@@ -22,27 +67,8 @@ const addTodoItem = function(){
                 todo: todoItemText,
                 completed: false
             });
-
-            const todoItem = document.createElement('li');
-            todoItem.classList.add('item');
-            const div = document.createElement('div');
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.value = todoItemText;
-            checkbox.classList.add('checkboxes');
-            div.appendChild(checkbox);
-
-            const span = document.createElement('span');
-            span.textContent = todoItemText;
-            div.appendChild(span);
-
-            const trashIcon = document.createElement('img');
-            trashIcon.classList.add('trash-icon');
-            trashIcon.src = 'https://img.icons8.com/material-rounded/24/000000/trash.png';
-            todoItem.appendChild(div);
-            todoItem.appendChild(trashIcon);
-
-            itemsList.appendChild(todoItem);
+            saveTodoItems();
+            itemsList.appendChild(createItem(todoItemText, false));
             document.getElementById('todo-input').value = '';
         }
 
