@@ -148,11 +148,11 @@ ul li:not(:last-child) {
 /* media queries */
 @media screen and (max-width: 530px) {
     .list-container{
-        width: 400px;
-        height: 600px;
+        width: 95vw;
+        height: 95vh;
     }
 }
-
+/* 
 @media screen and (max-width: 420px) {
     .list-container{
         width: 300px;
@@ -184,7 +184,7 @@ ul li:not(:last-child) {
         height: 55%;
 
     }
-}
+} */
 
 
 
