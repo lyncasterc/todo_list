@@ -38,27 +38,24 @@ const createItem = (todo) => {
 };
 
 const addTodoItem = function(){
-    button.addEventListener('click', function(){
-        const input = document.getElementById('todo-input');
-        const todoItemText = input.value;
+    const input = document.getElementById('todo-input');
+    const todoItemText = input.value;
 
-        if(todoItemText.trim() === ''){
-            input.classList.add('error');
-            input.placeholder = 'You can\'t add a blank item!';
-        } else {
-            input.classList.remove('error');
-            input.placeholder = 'What do you need to do?';
-            todos.push({
-                id: Date.now() + Math.random(),
-                text: todoItemText,
-                completed: false
-            });
-            savetodos();
-            document.getElementById('todo-input').value = '';
-            rendertodos();
-        }
-
-    });
+    if(todoItemText.trim() === ''){
+        input.classList.add('error');
+        input.placeholder = 'You can\'t add a blank item!';
+    } else {
+        input.classList.remove('error');
+        input.placeholder = 'What do you need to do?';
+        todos.push({
+            id: Date.now() + Math.random(),
+            text: todoItemText,
+            completed: false
+        });
+        savetodos();
+        document.getElementById('todo-input').value = '';
+        rendertodos();
+    }    
 }
 
 const checkTodoItem = function(){
